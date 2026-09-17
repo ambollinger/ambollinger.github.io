@@ -804,6 +804,81 @@
     }
 
     /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    .testimonials { background: var(--color-bg); }
+
+    /* .testimonials__track holds one or more .testimonial-card elements.
+       It's already a horizontally-scrolling, snap-aligned row, so adding
+       more cards later turns it into a carousel with no structural changes. */
+    .testimonials__wrapper {
+      max-width: 760px;
+      margin-inline: auto;
+    }
+
+    .testimonials__track {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .testimonials__track::-webkit-scrollbar { display: none; }
+
+    .testimonial-card {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .testimonial-card__icon {
+      width: 44px;
+      height: 44px;
+      background: var(--color-accent-dim);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-card__icon svg { width: 20px; height: 20px; }
+
+    .testimonial-card__text {
+      margin: 0 0 1.75rem;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--color-text);
+    }
+
+    .testimonial-card__author {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      margin: 0;
+    }
+    .testimonial-card__name {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-heading);
+    }
+    .testimonial-card__role {
+      font-size: 0.82rem;
+      color: var(--color-muted-light);
+    }
+
+    @media (max-width: 560px) {
+      .testimonial-card { padding: 1.75rem 1.5rem; }
+    }
+
+    /* ============================================================
        CONTACT
     ============================================================ */
     .contact {
@@ -1048,6 +1123,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact" class="navbar__cta">Contact</a></li>
       </ul>
       <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation">
@@ -1564,6 +1640,50 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+  ============================================================ -->
+  <section class="testimonials reveal" id="testimonials">
+    <div class="container">
+      <p class="section-label reveal">Recommendations</p>
+      <h2 class="section-title reveal reveal-delay-1">What People Say</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        Feedback from professors and colleagues I've worked with.
+      </p>
+
+      <div class="testimonials__wrapper reveal reveal-delay-3">
+        <div class="testimonials__track">
+
+          <div class="testimonial-card">
+            <div class="testimonial-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>
+                <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>
+              </svg>
+            </div>
+            <blockquote class="testimonial-card__text">
+              Alexander was one of the most dedicated students I had the pleasure of teaching
+              in economics courses. He consistently impressed me with his strong work ethic,
+              thoughtful engagement with course material, and ability to connect economic
+              concepts to real-world issues. What stood out most was his determination,
+              balancing full-time studies while working long hours and still maintaining
+              excellent academic performance. I am confident that his discipline, maturity,
+              and analytical skills will continue to serve him well in both graduate study
+              and his professional career.
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <cite class="testimonial-card__name">Riham Barbar</cite>
+              <span class="testimonial-card__role">Faculty, San Francisco State University</span>
+            </footer>
+          </div>
+
+          <!-- Add another .testimonial-card here to extend this into a multi-card carousel -->
+
+        </div>
       </div>
     </div>
   </section>
